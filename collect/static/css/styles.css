@@ -1,0 +1,55 @@
+:root {
+    margin: 0;
+    padding: 0;
+
+    font-size: 20px;
+}
+
+html, body {
+    background: #343A40;
+    color: white;
+    text-align: center;
+}
+
+.card-body {
+    height: 70vh;
+    width: 50vw;
+
+    margin: 0 auto;
+}
+
+form {
+    border: 1.5px #343C46 solid;
+    border-radius: 10px;
+}
+
+th {
+    text-align: left;
+}
+
+
+.card {
+    background: rgba(63, 77, 90, 0.6);
+    color: white;
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.card-title {
+    margin: 10px 20px 40px 20px;
+}
+
+.field-table {
+    margin: 15px auto 25px auto;
+}
+
+.btn {
+    margin: 15px;
+}
+
+.table {
+    text-align: center;
+
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
