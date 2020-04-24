@@ -1,14 +1,19 @@
 # Repository for Data Collection form
 
+Heroku Dyno here: https://dcniser.herokuapp.com/collect/
+
 ## Usage:
 
 ### Dependencies:
-(Check `requirements.txt` for exact versions - currently unavailable)
+(Check `requirements.txt` for exact versions)
 
 Python Packages:
 * `django`
 * `psycopg2`
 * `Pillow`
+* `dj-database-url`
+* `gunicorn`
+* `whitenoise`
 
 System Dependencies:
 * `postgresql` (Tested with `postgresql 12`)
@@ -34,8 +39,9 @@ System Dependencies:
 | Add garbage collection for orphan images | ✅ | |
 | Rename files, during upload - `<app_no>-photo` & `<app_no>-sign` | ✅ | |
 | Integrate [signature_pad](https://github.com/szimek/signature_pad) | ⚙ | Can use `npm` for this + [Resource](https://stackoverflow.com/questions/34447308/how-to-save-jpeg-binary-data-to-django-imagefield) |
+| Setup a Heroku Dyno | ✅ | [Visit here](https://dcniser.herokuapp.com/collect/) |
 | Utility to add applications numbers to database | ⚙ | |
-| `pip freeze` | ⚙ | At the end |
+| `pip freeze` | ✅ | Check again at the end |
 | Write `unittests` | 👀 | At the end |
 
 ## Status (Not substitute for `unittests`)
@@ -45,6 +51,7 @@ System Dependencies:
 | Form upload | ✅ |
 | Media in `/admin` | ✅ |
 | Garbage Collection | ✅ |
+| Heroku dyno up | ✅ |
 
 ## Feature Requests:
 
