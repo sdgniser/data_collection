@@ -11,7 +11,29 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from .local_settings import *
+import dj_database_url
+# from .local_settings import *
+
+SECRET_KEY = os.environ.get('SECRET_KEY', "@*+_sg3g!3hsd027-!&%)him%3u6(n6(c!bm_n=eoo%=)909q%")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PWD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,7 +46,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.42.225']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dcniser.herokuapp.com']
 
 
 # Application definition
@@ -37,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'collect',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'data_collection.urls'
@@ -106,8 +130,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
 LOGIN_REDIRECT_URL = "/"
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
