@@ -20,6 +20,11 @@
                     <table class="field-table">
                         {{ form.as_table }}
                     </table>
+                     <div class="signature-pad-wrapper">
+                        <canvas id="signature-pad" class="signature-pad" width=600 height=400></canvas>
+                    </div>
+                    <button id="save">Save</button>
+                    <button id="clear">Clear</button>
                     <input type="submit" class="btn btn-primary" value="Upload">
                 </form>
                 {% if message %}
@@ -27,5 +32,7 @@
                 {% endif %}
             </div>
         {% endblock upload %}
+        <script src="{% static 'js/signature_pad.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/scripts.js' %}" type="text/javascript"></script>
     </body>
 </html>

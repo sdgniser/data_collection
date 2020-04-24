@@ -1,4 +1,7 @@
 :root {
+    --h: 400px;
+    --w: 600px;
+    
     margin: 0;
     padding: 0;
 
@@ -6,7 +9,7 @@
 }
 
 html, body {
-    background: #343A40;
+    /* background: #343A40; */
     color: white;
     text-align: center;
 }
@@ -52,4 +55,26 @@ th {
     text-align: center;
 
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.signature-pad-wrapper {
+    position: relative;
+    width: var(--w);
+    height: var(--h);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.signature-pad {
+    /* position: relative;
+    left: 0;
+    top: 0; */
+    width: var(--w);
+    height: var(--h);
+    background: white;
+    z-index: 100;
+    border-radius: 20px;
+    border: 2px red inset;
 }
