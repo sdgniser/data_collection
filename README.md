@@ -3,7 +3,7 @@
 ## Usage:
 
 ### Dependencies:
-(Check `requirements.txt` for exact versions)
+(Check `requirements.txt` for exact versions - currently unavailable)
 
 Python Packages:
 * `django`
@@ -11,7 +11,7 @@ Python Packages:
 * `Pillow`
 
 System Dependencies:
-* `postgresql` (Tested with `pgsql 12`)
+* `postgresql` (Tested with `postgresql 12`)
 
 ### Setup:
 
