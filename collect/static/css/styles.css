@@ -1,6 +1,7 @@
 :root {
-    --h: 400px;
-    --w: 600px;
+    --h: 300px;
+    --w: 500px;
+    /* --ff: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     
     margin: 0;
     padding: 0;
@@ -12,11 +13,13 @@ html, body {
     /* background: #343A40; */
     color: white;
     text-align: center;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .card-body {
     height: 70vh;
-    width: 50vw;
+    width: 75vw;
 
     margin: 0 auto;
 }
@@ -24,6 +27,10 @@ html, body {
 form {
     border: 1.5px #343C46 solid;
     border-radius: 10px;
+
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
 }
 
 th {
@@ -58,9 +65,10 @@ th {
 }
 
 .signature-pad-wrapper {
-    position: relative;
+    margin: 0 auto;
     width: var(--w);
     height: var(--h);
+
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -68,13 +76,12 @@ th {
 }
 
 .signature-pad {
-    /* position: relative;
-    left: 0;
-    top: 0; */
     width: var(--w);
     height: var(--h);
+
     background: white;
     z-index: 100;
+    
     border-radius: 20px;
     border: 2px red inset;
 }

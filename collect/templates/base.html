@@ -21,11 +21,12 @@
                         {{ form.as_table }}
                     </table>
                      <div class="signature-pad-wrapper">
-                        <canvas id="signature-pad" class="signature-pad" width=600 height=400></canvas>
+                        <canvas id="signature-pad" class="signature-pad" width=500 height=300></canvas>
                     </div>
-                    <button id="save">Save</button>
-                    <button id="clear">Clear</button>
-                    <input type="submit" class="btn btn-primary" value="Upload">
+                    <button id="clear"  class="btn btn-primary">Clear</button>
+                    <input id="save" type="submit" class="btn btn-primary" value="Upload">
+                    {% comment %} <button id="save"  class="btn btn-primary">Save</button> {% endcomment %}
+                    {% comment %} <input type="submit" class="btn btn-primary" value="Upload"> {% endcomment %}
                 </form>
                 {% if message %}
                     <p style="color: orange; margin-top: 20px;"><strong>{{ message }}</strong></p>

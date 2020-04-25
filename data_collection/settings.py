@@ -131,7 +131,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'var', 'static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 LOGIN_REDIRECT_URL = "/"
