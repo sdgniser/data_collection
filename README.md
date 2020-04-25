@@ -1,6 +1,6 @@
 # Repository for Data Collection form
 
-Heroku Dyno here: https://dcniser.herokuapp.com/collect/
+Heroku App here: https://dcniser.herokuapp.com/collect/
 
 ## Usage:
 
@@ -38,8 +38,9 @@ System Dependencies:
 | Make names uppercase | ✅ | |
 | Add garbage collection for orphan images | ✅ | |
 | Rename files, during upload - `<app_no>-photo` & `<app_no>-sign` | ✅ | |
-| Integrate [signature_pad](https://github.com/szimek/signature_pad) | ⚙ | Can use `npm` for this + [Resource](https://stackoverflow.com/questions/34447308/how-to-save-jpeg-binary-data-to-django-imagefield) |
-| Setup a Heroku Dyno | ✅ | [Visit here](https://dcniser.herokuapp.com/collect/) |
+| Integrate [signature_pad](https://github.com/szimek/signature_pad) | ✅ | Can use `npm` for this + [Resource](https://stackoverflow.com/questions/34447308/how-to-save-jpeg-binary-data-to-django-imagefield) |
+| Setup a Heroku App | ✅ | [Visit here](https://dcniser.herokuapp.com/collect/) |
+| Make signing on iPad smoother | ⚙ | |
 | Utility to add applications numbers to database | ⚙ | |
 | `pip freeze` | ✅ | Check again at the end |
 | Write `unittests` | 👀 | At the end |
@@ -51,21 +52,24 @@ System Dependencies:
 | Form upload | ✅ |
 | Media in `/admin` | ✅ |
 | Garbage Collection | ✅ |
-| Heroku dyno up | ✅ |
+| Heroku app up | ✅ |
 
 ## Feature Requests:
 
 | Feature Requests | Status | Notes |
 |:---|---:|---|
-| Applicant DetailView should show Applicant `photo` & `sign` in `/admin` | ✅ | Can get cluttered |
-| Make the interface look better | ⚙ | |
-| Sorting in `/admin` | ⚙ | |
+| Applicant DetailView should show Applicant `photo` & `sign` in `/admin` | ✅ | Can get cluttered/make admin site slow |
+| Make the interface look better | ✅❔ | |
 
 ## Issues
 
-| Issues | Status |
-|:---|---:|
+| Issues | Status | Notes |
+|:---|---:|----|
 | Required fields in form | ✅ |
 | `app_no` exists error | ✅ |
 | No images displayed in `/admin` | ✅ |
 | `get_` fields have to be set to `read_only` for images to display | ❌ |
+| Clicking on Clear POSTs form | ✅ | Fixed with `type="button"` in `<canvas>`
+| "The 'sign' attribute has no file associated with it." | ✅ | Have to `save()` directly to `sign` ImageField
+| When submitting form, with signature_pad empty => `Form invalid!<ul class="errorlist"><li>raw_sign<ul class="errorlist"><li>This field is required.</li></ul></li></ul>` | ✅ | Used custom validation, if `signature_pad.isEmpty()` |
+| When another submission is made for the same `app_no`, the image file for `sign` has gibberish in its name. **Happens alternately**. | ⚙ | |

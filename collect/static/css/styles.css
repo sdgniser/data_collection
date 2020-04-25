@@ -1,7 +1,8 @@
 :root {
-    --h: 300px;
-    --w: 500px;
-    /* --ff: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    /* Put the same values in <canvas> in base.html, as well */
+    /* Otherwise, signature_pad breaks */
+    --h: 200px;
+    --w: 400px;
     
     margin: 0;
     padding: 0;
@@ -10,7 +11,6 @@
 }
 
 html, body {
-    /* background: #343A40; */
     color: white;
     text-align: center;
 
@@ -24,30 +24,21 @@ html, body {
     margin: 0 auto;
 }
 
+.card-title {
+    margin: 10px 20px 40px 20px;
+}
+
 form {
     border: 1.5px #343C46 solid;
     border-radius: 10px;
-
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
 }
 
 th {
     text-align: left;
 }
 
-
-.card {
-    background: rgba(63, 77, 90, 0.6);
-    color: white;
-    border-radius: 10px;
-
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-}
-
-.card-title {
-    margin: 10px 20px 40px 20px;
+input[name="app_no"], input[name="name"] {
+    width: 100%;
 }
 
 .field-table {
@@ -81,7 +72,25 @@ th {
 
     background: white;
     z-index: 100;
-    
-    border-radius: 20px;
-    border: 2px red inset;
+
+    border: 2px wheat inset;
+}
+
+#palm-rest {
+    margin: 0 auto;
+    height: 200px;
+    width: var(--w);
+
+    display: flex;
+
+    border: 1px rgba(245, 222, 179, 0.5) dashed;
+}
+
+#palm-rest-text {
+    margin: auto;
+    text-align: center;
+
+    font-family: monospace;
+    color: gray;
+    opacity: 0.5;
 }

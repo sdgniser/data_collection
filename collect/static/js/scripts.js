@@ -1,21 +1,30 @@
+var palm_rest_text = document.getElementById('palm-rest-text')
+
 var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
     backgroundColor: 'rgba(255, 255, 255, 0)',
     penColor: 'rgb(0, 0, 0)',
-    maxWidth: 2,
-    dotSize: 2
-    // onEnd: function () {
-    //     signature = signaturePad.toDataURL("image/jpeg");
-    //     document.getElementById('id_signatureHolder').value = signature;
-    // }
+    maxWidth: 1.5,
+    dotSize: 1.5,
+    onBegin: function () {
+        palm_rest_text.style.color = "gray";
+        palm_rest_text.style.opacity = "0.5";
+        palm_rest_text.innerHTML = "PLEASE SIGN ABOVE";
+    }
 });
-var saveButton = document.getElementById('save');
+var uploadButton = document.getElementById('upload');
 var cancelButton = document.getElementById('clear');
 
-saveButton.addEventListener('click', function (event) {
-    var data = signaturePad.toDataURL('image/png');
-
-    // Send data to server instead...
-    window.open(data);
+uploadButton.addEventListener('click', function (event) {
+    if (signaturePad.isEmpty()) {
+        palm_rest_text.style.color = "red";
+        palm_rest_text.style.opacity = "1";
+        palm_rest_text.innerHTML = "PLEASE FILL IN ALL FIELDS AND SIGN ABOVE";
+        event.preventDefault();
+    }
+    else {
+        var data = signaturePad.toDataURL('image/png');
+        document.getElementById('id_raw_sign').value = data;
+    }
 });
 
 cancelButton.addEventListener('click', function (event) {

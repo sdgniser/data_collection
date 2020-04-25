@@ -9,7 +9,7 @@ class ApplicantAdmin(admin.ModelAdmin):
         return mark_safe(f'<img src="{obj.photo.url}" alt="{str(obj.app_no)} ({str(obj.name)})" style="width: 150px; height: 200px">')
 
     def get_sign(self, obj):
-        return mark_safe(f'<img src="{obj.sign.url}" alt="{str(obj.app_no)} ({str(obj.name)})" style="width: 150px; height: 200px">')
+        return mark_safe(f'<img src="{obj.sign.url}" alt="{str(obj.app_no)} ({str(obj.name)})" style="width: 200px; height: 100px">')
 
     get_photo.short_description = 'Photograph'
     get_sign.short_description = 'Signature'
