@@ -1,8 +1,8 @@
 :root {
     /* Put the same values in <canvas> in base.html, as well */
     /* Otherwise, signature_pad breaks */
-    --h: 200px;
-    --w: 400px;
+    --h: 300px;
+    --w: 600px;
     
     margin: 0;
     padding: 0;
@@ -11,6 +11,7 @@
 }
 
 html, body {
+    position: fixed; /* For iPad OS - Safari */
     color: white;
     text-align: center;
 

@@ -29,7 +29,11 @@ System Dependencies:
 * `cd` to working directory and run `python manage.py makemigrations` and `python manage.py migrate`.
 * Start the server using `python manage.py runserver localhost:8787`. (You can change the port, but change it everywhere ⬇)
 * Browse to `localhost:8787` in your browser.
-* To open the admin panel, browse to `localhost:8787/admin`
+* To open the admin site, browse to `localhost:8787/admin`
+
+### How does this work?
+
+After setting up, first thing, you need to do, is to [create an admin/superuser](https://docs.djangoproject.com/en/3.0/intro/tutorial02/#creating-an-admin-user), go to the admin site and add an (or a few) `Applicant`(s). All you need to supply is an Application Number (Put a random number for now). `default_image` is set as the image for `photo` and `sign` fields, *by default*. Return to the main site and input the application number, for the `Applicant`, you just created, in the Application Number field. This is important, as the app checks for existing application numbers. You'll get an error, if the inputted application number does not exist in database. Next, input a name and upload a picture (try using the camera, if on a portable device). Use the signature pad to input the signature (try using a stylus, if on a touchscreen). All fields are required. After a successful submission, you will be shown a "Data submitted successfully" message. Go to the admin site. There, in Applicants, you should see the newly uploaded name, photograph and signature, under the corresponding application number.
 
 ## ToDo:
 
@@ -72,4 +76,5 @@ System Dependencies:
 | Clicking on Clear POSTs form | ✅ | Fixed with `type="button"` in `<canvas>`
 | "The 'sign' attribute has no file associated with it." | ✅ | Have to `save()` directly to `sign` ImageField
 | When submitting form, with signature_pad empty => `Form invalid!<ul class="errorlist"><li>raw_sign<ul class="errorlist"><li>This field is required.</li></ul></li></ul>` | ✅ | Used custom validation, if `signature_pad.isEmpty()` |
-| When another submission is made for the same `app_no`, the image file for `sign` has gibberish in its name. **Happens alternately**. | ⚙ | |
+| When another submission is made for the same `app_no`, the image file for `sign` has gibberish in its name. | ⚙ | **Happens alternately** |
+| Bounce + Zoom effects cause issues with Safari on iPad (Pro) | ⚙ | |
