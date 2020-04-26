@@ -78,9 +78,9 @@ After setting up, first thing, you need to do, is to [create an admin/superuser]
 | Required fields in form | ✅ |
 | `app_no` exists error | ✅ |
 | No images displayed in `/admin` | ✅ |
-| `get_` fields have to be set to `read_only` for images to display | ❌ |
+| `get_` fields have to be set to `read_only` for images to display | ❌ | Roundabout fix |
 | Clicking on Clear POSTs form | ✅ | Fixed with `type="button"` in `<canvas>`
 | "The 'sign' attribute has no file associated with it." | ✅ | Have to `save()` directly to `sign` ImageField
 | When submitting form, with signature_pad empty => `Form invalid!<ul class="errorlist"><li>raw_sign<ul class="errorlist"><li>This field is required.</li></ul></li></ul>` | ✅ | Used custom validation, if `signature_pad.isEmpty()` |
+| Bounce + Zoom effects cause issues with Safari on iPad (Pro) | ✅ | Set `position: fixed` on `.card-body` |
 | When another submission is made for the same `app_no`, the image file for `sign` has gibberish in its name. | ⚙ | **Happens alternately** |
-| Bounce + Zoom effects cause issues with Safari on iPad (Pro) | ⚙ | |
