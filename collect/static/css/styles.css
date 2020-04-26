@@ -7,11 +7,11 @@
     margin: 0;
     padding: 0;
 
-    font-size: 20px;
+    font-size: 15px;
 }
 
 html, body {
-    position: fixed; /* For iPad OS - Safari */
+    /* position: fixed; For iPad OS - Safari */
     color: white;
     text-align: center;
 
@@ -19,6 +19,8 @@ html, body {
 }
 
 .card-body {
+    position: fixed;
+    left: 12.5%;
     height: 70vh;
     width: 75vw;
 
