@@ -1,7 +1,7 @@
 :root {
     /* Put the same values in <canvas> in base.html, as well */
     /* Otherwise, signature_pad breaks */
-    --h: 300px;
+    --h: 200px;
     --w: 600px;
     
     margin: 0;
