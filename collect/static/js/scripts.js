@@ -1,6 +1,7 @@
+var canvas = document.getElementById('signature-pad');
 var palm_rest_text = document.getElementById('palm-rest-text')
 
-var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+var signaturePad = new SignaturePad(canvas, {
     backgroundColor: 'rgba(255, 255, 255, 0)',
     penColor: 'rgb(0, 0, 0)',
     maxWidth: 1.5,
@@ -11,6 +12,15 @@ var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
         palm_rest_text.innerHTML = "PLEASE SIGN ABOVE";
     }
 });
+
+// For High (and low) DPI screens
+function resizeCanvas() {
+    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+    signaturePad.clear(); // otherwise isEmpty() might return incorrect value
+}
 
 var uploadButton = document.getElementById('upload');
 var cancelButton = document.getElementById('clear');
@@ -31,16 +41,6 @@ uploadButton.addEventListener('click', function (event) {
 cancelButton.addEventListener('click', function (event) {
     signaturePad.clear();
 });
-
-// For High (and low) DPI screens
-canvas = document.getElementById('signature-pad');
-function resizeCanvas() {
-    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-    canvas.width = canvas.offsetWidth * ratio;
-    canvas.height = canvas.offsetHeight * ratio;
-    canvas.getContext("2d").scale(ratio, ratio);
-    signaturePad.clear(); // otherwise isEmpty() might return incorrect value
-}
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();

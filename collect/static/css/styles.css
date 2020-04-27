@@ -98,4 +98,7 @@ input[name="app_no"], input[name="name"] {
     font-family: monospace;
     color: gray;
     opacity: 0.5;
+
+    -webkit-user-select: none;   
+    user-select: none;
 }
