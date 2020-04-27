@@ -4,8 +4,11 @@ var palm_rest_text = document.getElementById('palm-rest-text')
 var signaturePad = new SignaturePad(canvas, {
     backgroundColor: 'rgba(255, 255, 255, 0)',
     penColor: 'rgb(0, 0, 0)',
+    minWidth: 1.5,
     maxWidth: 1.5,
     dotSize: 1.5,
+    throttle: 0,
+    velocityFilterWeight: 1,
     onBegin: function () {
         palm_rest_text.style.color = "gray";
         palm_rest_text.style.opacity = "0.5";
