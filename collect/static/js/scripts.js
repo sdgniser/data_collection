@@ -33,13 +33,14 @@ cancelButton.addEventListener('click', function (event) {
 });
 
 // For High (and low) DPI screens
-// function resizeCanvas() {
-//     var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-//     signaturePad.width = signaturePad.offsetWidth * ratio;
-//     signaturePad.height = signaturePad.offsetHeight * ratio;
-//     signaturePad.getContext("2d").scale(ratio, ratio);
-//     signaturePad.clear(); // otherwise isEmpty() might return incorrect value
-// }
+canvas = document.getElementById('signature-pad');
+function resizeCanvas() {
+    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+    signaturePad.clear(); // otherwise isEmpty() might return incorrect value
+}
 
-// window.addEventListener("resize", resizeCanvas);
-// resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
