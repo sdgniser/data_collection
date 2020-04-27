@@ -8,7 +8,7 @@ var signaturePad = new SignaturePad(canvas, {
     maxWidth: 1.5,
     dotSize: 1.5,
     throttle: 0,
-    velocityFilterWeight: 1,
+    velocityFilterWeight: 0,
     onBegin: function () {
         palm_rest_text.style.color = "gray";
         palm_rest_text.style.opacity = "0.5";
