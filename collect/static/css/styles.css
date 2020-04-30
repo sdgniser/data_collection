@@ -29,6 +29,11 @@ html, body {
     margin: 0 auto !important;
 }
 
+/* Diplays "message" (Check views.py) */
+.card-body p {
+    margin: 10px auto;
+}
+
 .card-title {
     margin: 10px 20px;
 }
