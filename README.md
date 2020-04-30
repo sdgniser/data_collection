@@ -54,7 +54,7 @@ The application numbers are preloaded into the database. The webapp sets "defaul
 | Rename files, during upload - `<app_no>-photo` & `<app_no>-sign` | ✅ | |
 | Integrate [signature_pad](https://github.com/szimek/signature_pad) | ✅ | Can use `npm` for this + [Resource](https://stackoverflow.com/questions/34447308/how-to-save-jpeg-binary-data-to-django-imagefield) |
 | Setup a Heroku App | ✅ | [Visit here](https://dcniser.herokuapp.com/collect/) |
-| Make signing on iPad smoother | ⚙ | |
+| Make signing on iPad smoother | ✅ | Checkout `smoother` branch |
 | Utility to add applications numbers to database | ⚙ | |
 | `pip freeze` | ✅ | Check again at the end |
 | Write `unittests` | 👀 | At the end |
