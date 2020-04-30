@@ -15,7 +15,7 @@
                 <p>{{ form.errors }}</p>
             {% endif %}
                 <h2 class="card-title">UPLOAD FORM</h2>
-                <form action="" method="POST" enctype="multipart/form-data" id="smoothed">
+                <form id="smoothed" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table class="field-table">
                         {{ form.as_table }}
@@ -40,6 +40,8 @@
             </div>
         {% endblock upload %}
         <script src="{% static 'js/jquery-3.5.0.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/numeric-1.2.6.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/bezier.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/jquery.signaturepad.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/scripts.js' %}" type="text/javascript"></script>
     </body>
