@@ -2,7 +2,7 @@
 
 Heroku App here: https://dcniser.herokuapp.com/collect/
 
-***Checkout `smoother` branch for Bezier Interpolated signature.***
+***Checkout `smoother` branch for UPDATED README & Bezier Interpolated signature.***
 ## Usage:
 
 ### Dependencies:
