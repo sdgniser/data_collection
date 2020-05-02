@@ -44,7 +44,7 @@ You can use the `admin` site to add applicants, but it's a tedious process to ad
 1. `cd` to **working directory**.
 2. Edit `./collect/fixtures/App_No.csv` with new Application Numbers (column-wise, below "pk") and save it.
 3. Run `python data_import.py` in the terminal. This will create a `App_No.json` file in `./collect/fixtures/`.
-4. Run `python manage.py loaddata App_No.json --app collect` in the terminal. You should get a `Installed {N} object(s) from 1 fixture(s)` message, where `{N}` denotes the number of application numbers in `App_No.csv`. This means, the data has been loaded into the database. If any errors are encountered at this step, check [below](????).
+4. Run `python manage.py loaddata App_No.json --app collect` in the terminal. You should get a `Installed {N} object(s) from 1 fixture(s)` message, where `{N}` denotes the number of application numbers in `App_No.csv`. This means, the data has been loaded into the database. If any errors are encountered at this step, check [below](#how-does-this-work).
 Now, that the data has been loaded, browse to [localhost:8787](localhost:8787) and use the app. Read below for usage instructions.
 
 
