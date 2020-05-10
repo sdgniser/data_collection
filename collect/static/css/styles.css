@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Fira Sans");
 :root {
     /* Put the same values in <canvas> in base.html, as well */
     /* Otherwise, signature_pad breaks */
@@ -15,7 +16,8 @@ html, body {
     color: white;
     text-align: center;
 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Fira Sans';
 }
 
 .card-body {
