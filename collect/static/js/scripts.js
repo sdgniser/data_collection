@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('#upload').click(function(event) {
         signArray = signPad.getSignature();
         if (!Array.isArray(signArray) || !signArray.length) {
-            palm_rest_text.style.color = "red";
+            palm_rest_text.style.color = "#f03030";
             palm_rest_text.style.opacity = "1";
             palm_rest_text.innerHTML = "PLEASE FILL IN ALL FIELDS AND SIGN ABOVE";
             event.preventDefault();
