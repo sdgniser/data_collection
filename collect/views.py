@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
+from django.http import JsonResponse
 
 from .models import Applicant
 from .forms import UploadForm
@@ -56,3 +57,11 @@ def Upload(request):
 
     else: # GET & others
         return render(request, 'base.html', context = {'form':  UploadForm(),})
+
+def ValidateAppNo(request):
+    """For the ajax thing of the name of application being filled"""
+    appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
+    data = {
+        'is_filled' : appl_obj[0].name != 'default-name'
+        }
+    return JsonResponse(data)

@@ -18,6 +18,7 @@
                 <form id="smoothed" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table class="field-table">
+                      <span id="app-id-ajax-warn" style="color:#f03030;">This application id already has data filled</span>
                         {{ form.as_table }}
                     </table>
                     <div class="sig sigWrapper">
