@@ -38,6 +38,7 @@ $(document).ready(function () {
         console.log(data);
         $("#app-id-ajax-warn").html(data.status);
         $("#app-id-ajax-warn").css("color", data.color);
+        $("#footer-message").hide();
         $("#app-id-ajax-warn").show();
       },
     });
