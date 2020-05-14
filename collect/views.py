@@ -47,7 +47,7 @@ def Upload(request):
                 return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
 
             else: # Application Number does not exist
-                message = "Application Number not found !"
+                message = "Application Number not found!"
                 message_color = "#f03030"
                 return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
 
@@ -59,7 +59,10 @@ def Upload(request):
         return render(request, 'base.html', context = {'form':  UploadForm(),})
 
 def ValidateAppNo(request):
-    """For the ajax thing of the name of application being filled"""
+    """
+    Checks for data overwrite, in case of multiple submissions to the same app_no
+    AJAX-ed
+    """
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
     if appl_obj:
         if appl_obj[0].name == 'default-name':
