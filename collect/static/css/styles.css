@@ -1,6 +1,6 @@
 :root {
     /* Put the same values in <canvas> in base.html, as well */
-    /* Otherwise, signature_pad breaks */
+    /* Otherwise, signature-pad breaks */
     --h: 200px;
     --w: 600px;
 
@@ -35,7 +35,7 @@ html, body {
     margin: 0 auto !important;
 }
 
-/* Diplays "message" (Check views.py) */
+/* Displays "message" (Check views.py) */
 .card-body p {
     margin: 10px auto;
 }
