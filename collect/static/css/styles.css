@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fira Sans");
+@import "font.css";
 :root {
     /* Put the same values in <canvas> in base.html, as well */
     /* Otherwise, signature_pad breaks */

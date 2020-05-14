@@ -47,7 +47,7 @@ def Upload(request):
                 return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
 
             else: # Application Number does not exist
-                message = "Application Number not found !!!"
+                message = "Application Number not found !"
                 message_color = "#f03030"
                 return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
 
