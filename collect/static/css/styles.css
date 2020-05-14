@@ -1,10 +1,9 @@
-@import "font.css";
 :root {
     /* Put the same values in <canvas> in base.html, as well */
     /* Otherwise, signature_pad breaks */
     --h: 200px;
     --w: 600px;
-
+    
     margin: 0;
     padding: 0;
 
@@ -16,8 +15,7 @@ html, body {
     color: white;
     text-align: center;
 
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-family: 'Fira Sans';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .card-body {
@@ -37,12 +35,7 @@ html, body {
 }
 
 .card-title {
-    margin: 20px 20px;
-    font-size: 2rem;
-    line-height: 0;
-    letter-spacing: 0.022em;
-    font-weight: 100;
-    font-style: normal;
+    margin: 10px 20px;
 }
 
 form {
@@ -54,16 +47,8 @@ th {
     text-align: left;
 }
 
-label {
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.04em;
-    font-weight: 500;
-}
-
 input[name="app_no"], input[name="name"] {
     width: 100%;
-    margin-bottom: 5px;
 }
 
 .field-table {
@@ -124,6 +109,6 @@ input[name="app_no"], input[name="name"] {
     color: gray;
     opacity: 0.5;
 
-    -webkit-user-select: none;
+    -webkit-user-select: none;   
     user-select: none;
 }
