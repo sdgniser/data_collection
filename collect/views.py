@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
 from django.conf import settings
+from django.core.files import File
 from django.http import JsonResponse
+from django.shortcuts import render, redirect
 
 from .models import Applicant
 from .forms import UploadForm
@@ -10,7 +11,7 @@ from .forms import UploadForm
 import re
 from io import BytesIO
 from base64 import decodestring
-from django.core.files import File
+
 
 # Create your views here.
 def Upload(request):
@@ -25,7 +26,7 @@ def Upload(request):
             appl_obj = Applicant.objects.filter(app_no__exact=form.cleaned_data['app_no'])
 
             if appl_obj: # Application Number exists
-                old_name = appl_obj[0].name # will be used for checking if data is being over-written
+                old_name = appl_obj[0].name # For checking, if data is being over-written
                 appl_obj[0].name = form.cleaned_data['name'].upper()
                 appl_obj[0].photo = form.cleaned_data['photo']
 
@@ -41,7 +42,7 @@ def Upload(request):
                     message = "Data successfully uploaded."
                     message_color = "#18b518"
                 else:
-                    message = "The old data has been over-written"
+                    message = "Old data has been overwritten!"
                     message_color = "#dbd137"
 
                 return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
@@ -61,10 +62,11 @@ def Upload(request):
 def ValidateAppNo(request):
     """
     Checks for data overwrite, in case of multiple submissions to the same app_no
-    AJAX-ed
+    AJAX-ed by @Abhishek
     """
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
     data = {
         'is_filled' : appl_obj[0].name != 'default-name'
-        }
+    }
+
     return JsonResponse(data)

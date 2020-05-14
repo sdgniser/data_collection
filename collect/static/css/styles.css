@@ -1,4 +1,3 @@
-@import "font.css";
 :root {
     /* Put the same values in <canvas> in base.html, as well */
     /* Otherwise, signature_pad breaks */
@@ -11,13 +10,18 @@
     font-size: 15px;
 }
 
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/FiraSans-Light.otf);
+}
+
 html, body {
-    /* position: fixed; For iPad OS - Safari */
     color: white;
     text-align: center;
 
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-family: 'Fira Sans';
+    font-family: 'Fira Sans', Helvetica, sans-serif;
 }
 
 .card-body {
@@ -37,7 +41,7 @@ html, body {
 }
 
 .card-title {
-    margin: 20px 20px;
+    margin: 30px 20px;
     font-size: 2rem;
     line-height: 0;
     letter-spacing: 0.022em;
