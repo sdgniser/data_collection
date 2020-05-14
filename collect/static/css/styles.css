@@ -131,3 +131,11 @@ input[name="app_no"], input[name="name"] {
     -webkit-user-select: none;
     user-select: none;
 }
+
+#app-no-ajax-warn {
+    color: #f03030;
+}
+
+#message {
+    margin: 5px auto;
+}

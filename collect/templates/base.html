@@ -18,7 +18,7 @@
                 <form id="smoothed" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table class="field-table">
-                      <span id="app-no-ajax-warn" style="color:#f03030;">Pre-existing data found for this Application Number. Re-submission will result in an overwrite.</span>
+                      <span id="app-no-ajax-warn">Pre-existing data found for this Application Number. Re-submission will result in an overwrite.</span>
                         {{ form.as_table }}
                     </table>
                     <div class="sig sigWrapper">
@@ -36,7 +36,7 @@
                     </ul>
                 </form>
                 {% if message %}
-                    <p style="color: {{ message_color }}; margin-top: 20px;"><strong>{{ message }}</strong></p>
+                    <p id="message" style="color: {{ message_color }};"><strong>{{ message }}</strong></p>
                 {% endif %}
             </div>
         {% endblock upload %}
