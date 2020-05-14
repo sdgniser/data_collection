@@ -15,26 +15,35 @@
                 <p>{{ form.errors }}</p>
             {% endif %}
                 <h2 class="card-title">UPLOAD FORM</h2>
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form id="smoothed" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table class="field-table">
+                      <span id="app-no-ajax-warn">Pre-existing data found for this Application Number. Re-submission will result in an overwrite.</span>
                         {{ form.as_table }}
                     </table>
-                     <div class="signature-pad-wrapper">
-                        <canvas id="signature-pad" class="signature-pad" width=600 height=200></canvas>
+                    <div class="sig sigWrapper">
+                        <div class="signature-pad-wrapper">
+                            <canvas id="signature-pad" class="pad" width=600 height=200></canvas>
+                        </div>
+                        <input type="hidden" name="output" class="output">
                     </div>
                     <div id="palm-rest">
                         <span id="palm-rest-text">PLEASE SIGN ABOVE</span>
                     </div>
-                    <button id="clear" type="button" class="btn btn-primary">Clear Canvas</button>
-                    <button id="upload" type="submit" class="btn btn-primary" value="Upload">Upload</button>
+                    <ul class="sigNav">
+                        <button id="clear" type="button" class="clearButton btn btn-primary">Clear</button>
+                        <button id="upload" type="submit" class="btn btn-primary" value="Upload">Upload</button>
+                    </ul>
                 </form>
                 {% if message %}
-                    <p style="color: orange; margin-top: 20px;"><strong>{{ message }}</strong></p>
+                    <p id="message" style="color: {{ message_color }};"><strong>{{ message }}</strong></p>
                 {% endif %}
             </div>
         {% endblock upload %}
-        <script src="{% static 'js/signature_pad.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery-3.5.0.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/numeric-1.2.6.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/bezier.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.signaturepad.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/scripts.js' %}" type="text/javascript"></script>
     </body>
 </html>

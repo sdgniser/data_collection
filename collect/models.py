@@ -47,10 +47,16 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
     new_sign = instance.sign
     if not old_photo == new_photo:
         if os.path.isfile(old_photo.path):
+            #  Don't delete default files
+            if 'default' in old_photo.path:
+                return False
             os.remove(old_photo.path)
 
     if not old_sign == new_sign:
         if os.path.isfile(old_sign.path):
+            #  Don't delete default files
+            if 'default' in old_sign.path:
+                return False
             os.remove(old_sign.path)
 
 
