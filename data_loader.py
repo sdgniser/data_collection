@@ -16,7 +16,7 @@ with open(path + "App_No_Temp.json", 'r+') as json_file:
             'sign': 'default.png'
         }
         print(elem)
-    
+
     with open(path + "App_No.json", 'w+') as out_file:
         json.dump(decoded, out_file, indent=4)
 

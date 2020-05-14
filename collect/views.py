@@ -61,7 +61,19 @@ def Upload(request):
 def ValidateAppNo(request):
     """For the ajax thing of the name of application being filled"""
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
+    if appl_obj:
+        if appl_obj[0].name == 'default-name':
+            status = "No errors were found go ahead"
+            color = "green"
+        else:
+            status = "The application number is already filled"
+            color = "#f03030"
+        pass
+    else:
+        status = "Application number not found"
+        color = "#f03030"
     data = {
-        'is_filled' : appl_obj[0].name != 'default-name'
+        'status' : status,
+        'color' : color
         }
     return JsonResponse(data)

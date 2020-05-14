@@ -28,7 +28,6 @@ $(document).ready(function () {
   $("#app-id-ajax-warn").hide();
   $("#id_app_no").change(function () {
     var app_no = $(this).val();
-
     $.ajax({
       url: "/collect/validate_app_no/",
       data: {
@@ -37,13 +36,9 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data) {
         console.log(data);
-        if (data.is_filled) {
-          console.log("show");
-          $("#app-id-ajax-warn").show();
-        } else {
-          console.log("hide");
-          $("#app-id-ajax-warn").hide();
-        }
+        $("#app-id-ajax-warn").html(data.status);
+        $("#app-id-ajax-warn").css("color", data.color);
+        $("#app-id-ajax-warn").show();
       },
     });
   });
