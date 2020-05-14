@@ -18,6 +18,7 @@
                 <form id="smoothed" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table class="field-table">
+                      <span id="app-id-ajax-warn" style="color:#f03030;">This application id already has data filled</span>
                         {{ form.as_table }}
                     </table>
                     <div class="sig sigWrapper">
@@ -35,7 +36,7 @@
                     </ul>
                 </form>
                 {% if message %}
-                    <p style="color: orange; margin-top: 20px;"><strong>{{ message }}</strong></p>
+                <p style="color: {{message_color}}; margin-top: 20px;"><strong>{{ message }}</strong></p>
                 {% endif %}
             </div>
         {% endblock upload %}
