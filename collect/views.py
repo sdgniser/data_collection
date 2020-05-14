@@ -59,7 +59,10 @@ def Upload(request):
         return render(request, 'base.html', context = {'form':  UploadForm(),})
 
 def ValidateAppNo(request):
-    """For the ajax thing of the name of application being filled"""
+    """
+    Checks for data overwrite, in case of multiple submissions to the same app_no
+    AJAX-ed
+    """
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
     data = {
         'is_filled' : appl_obj[0].name != 'default-name'
