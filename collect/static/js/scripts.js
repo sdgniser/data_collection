@@ -38,9 +38,9 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 if (data.is_filled) {
-                    $("#app-id-ajax-warn").show();
+                    $("#app-no-ajax-warn").show();
                 } else {
-                    $("#app-id-ajax-warn").hide();
+                    $("#app-no-ajax-warn").hide();
                 }
             },
         });

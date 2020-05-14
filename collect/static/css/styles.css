@@ -63,6 +63,7 @@ label {
     line-height: 28px;
     letter-spacing: 0.04em;
     font-weight: 500;
+    margin: 0;
 }
 
 input[name="app_no"], input[name="name"] {
