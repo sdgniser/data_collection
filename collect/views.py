@@ -32,8 +32,14 @@ def Upload(request):
                 raw_sign = data_url_pattern.match(raw_sign_data).group(2)
                 raw_sign = bytes(raw_sign, 'UTF-8')
                 raw_sign = decodestring(raw_sign)
-                img_io = BytesIO(raw_sign)
-                appl_obj[0].sign.save("sign.png", File(img_io))
+
+                sign_img_io = BytesIO(raw_sign)
+                sign_img_file = File(sign_img_io)
+                sign_img_file.name = "sign.png"
+
+                appl_obj[0].sign = sign_img_file
+
+                appl_obj[0].save()
 
                 message = "Data succesfully uploaded."
 
