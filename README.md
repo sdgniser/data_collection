@@ -62,6 +62,7 @@ The application numbers are preloaded into the database, using `data_loader.py`.
 * The photograph is supposed to be taken through the device camera, on the spot.
 * The admin panel shows the application numbers, names, photos and signs for all applicants.
 * Photo and Sign are set to `read_only` in the admin panel. As such, only application numbers and names can be modified from there. The data collection process will have to be redone for changing Photo and Sign. This is not a framework restriction. It's been designed this way.
+* When focus form the application id field is removed, an ajax request is send to the server with the application id, corresponding view validates the application id and sends back a status(message) and the color, which is shown just above the form.
 
 ### On Loading Data (Application Numbers):
 * `pk` (Primary Key) denotes the application number, in `App_No.csv` and `App_No.json`.
