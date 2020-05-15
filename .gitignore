@@ -9,5 +9,4 @@ local_settings.py
 styles_old.css
 
 env
-
 collect/fixtures/*.json

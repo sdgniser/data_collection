@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
 from django.conf import settings
+from django.core.files import File
 from django.http import JsonResponse
+from django.shortcuts import render, redirect
+
 
 from .models import Applicant
 from .forms import UploadForm
@@ -10,7 +12,7 @@ from .forms import UploadForm
 import re
 from io import BytesIO
 from base64 import decodestring
-from django.core.files import File
+
 
 # Create your views here.
 def Upload(request):
@@ -25,7 +27,9 @@ def Upload(request):
             appl_obj = Applicant.objects.filter(app_no__exact=form.cleaned_data['app_no'])
 
             if appl_obj: # Application Number exists
-                old_name = appl_obj[0].name # will be used for checking if data is being over-written
+
+                old_name = appl_obj[0].name # For checking, if data is being over-written
+
                 appl_obj[0].name = form.cleaned_data['name'].upper()
                 appl_obj[0].photo = form.cleaned_data['photo']
 
@@ -34,14 +38,20 @@ def Upload(request):
                 raw_sign = data_url_pattern.match(raw_sign_data).group(2)
                 raw_sign = bytes(raw_sign, 'UTF-8')
                 raw_sign = decodestring(raw_sign)
-                img_io = BytesIO(raw_sign)
-                appl_obj[0].sign.save("sign.png", File(img_io))
+
+                sign_img_io = BytesIO(raw_sign)
+                sign_img_file = File(sign_img_io)
+                sign_img_file.name = "sign.png"
+
+                appl_obj[0].sign = sign_img_file
+
+                appl_obj[0].save()
 
                 if old_name == 'default-name':
                     message = "Data successfully uploaded."
                     message_color = "#18b518"
                 else:
-                    message = "The old data has been over-written"
+                    message = "Old data has been overwritten!"
                     message_color = "#dbd137"
 
                 return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
@@ -79,4 +89,5 @@ def ValidateAppNo(request):
         'status' : status,
         'color' : color
         }
+
     return JsonResponse(data)

@@ -12,6 +12,7 @@ Heroku App here: https://dcniser.herokuapp.com/collect/
   * `dj-database-url`
   * `gunicorn`
   * `whitenoise`
+  * `pandas` for `data_loader.py`
 
 * System Dependencies:
   * `postgresql` (Developed with `postgresql 12`)
