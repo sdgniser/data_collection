@@ -24,9 +24,9 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PWD'),
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -136,5 +136,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 LOGIN_REDIRECT_URL = "/"
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
