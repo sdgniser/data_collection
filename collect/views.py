@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
+from django.http import JsonResponse
 
 from .models import Applicant
 from .forms import UploadForm
@@ -56,3 +57,26 @@ def Upload(request):
 
     else: # GET & others
         return render(request, 'base.html', context = {'form':  UploadForm(),})
+
+def ValidateAppNo(request):
+    """
+    Checks for data overwrite, in case of multiple submissions to the same app_no
+    AJAX-ed
+    """
+    appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
+    if appl_obj:
+        if appl_obj[0].name == 'default-name':
+            status = "No errors were found go ahead"
+            color = "#18b518"
+        else:
+            status = "The application number is already filled"
+            color = "#f03030"
+        pass
+    else:
+        status = "Application number not found"
+        color = "#f03030"
+    data = {
+        'status' : status,
+        'color' : color
+        }
+    return JsonResponse(data)
