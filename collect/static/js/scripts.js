@@ -25,7 +25,8 @@ $(document).ready(function () {
         }
     });
 
-    $("#app-no-ajax-warn").hide();
+    app_no_warn = $("#app-no-ajax-warn")
+    app_no_warn.hide();
 
     $("#id_app_no").change(function () {
         var app_no = $(this).val();
@@ -37,11 +38,11 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (data) {
-                if (data.is_filled) {
-                    $("#app-no-ajax-warn").show();
-                } else {
-                    $("#app-no-ajax-warn").hide();
-                }
+                console.log(data);
+                app_no_warn.html(data.status);
+                app_no_warn.css("color", data.color);
+                $("#message").hide();
+                app_no_warn.show();
             },
         });
     });
