@@ -51,7 +51,7 @@ def Upload(request):
                     message = "Old data has been overwritten!"
                     message_color = "#dbd137"
 
-                return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
+                return render(request, 'base.html', context = {'form': UploadForm(), 'message': message, 'message_color': message_color})
 
             else: # Application Number does not exist
                 message = "Application Number not found!"
