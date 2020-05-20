@@ -73,17 +73,13 @@ def ValidateAppNo(request):
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
     if appl_obj:
         if appl_obj[0].name == 'default-name':
-            status = "No errors were found go ahead"
-            color = "#18b518"
+            status = ""
         else:
             status = "Pre-existing data found for this Application Number. Re-submission will result in an overwrite."
-            color = "#f03030"
-        pass
     else:
         status = "Application number not found"
-        color = "#f03030"
     data = {
         'status' : status,
-        'color' : color
+        'color' : "#f03030"
         }
     return JsonResponse(data)
