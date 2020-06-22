@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head>
     <body class="bg-dark">
@@ -14,11 +15,10 @@
                 <p>{{ form.errors }}</p>
             {% endif %}
                 <h2 class="card-title">UPLOAD FORM</h2>
-                <span id="app-id-ajax-warn" style="color:green;">Loading...</span>
+                <span id="app-no-ajax-warn" style="color: green;">Loading...</span>
                 <form id="smoothed" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table class="field-table">
-                      <span id="app-no-ajax-warn">Pre-existing data found for this Application Number. Re-submission will result in an overwrite.</span>
                         {{ form.as_table }}
                     </table>
                     <div class="sig sigWrapper">

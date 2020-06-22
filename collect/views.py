@@ -54,7 +54,7 @@ def Upload(request):
                     message = "Old data has been overwritten!"
                     message_color = "#dbd137"
 
-                return render(request, 'base.html', context = {'form': form, 'message': message, 'message_color': message_color})
+                return render(request, 'base.html', context = {'form': UploadForm(), 'message': message, 'message_color': message_color})
 
             else: # Application Number does not exist
                 message = "Application Number not found!"
@@ -71,23 +71,25 @@ def Upload(request):
 def ValidateAppNo(request):
     """
     Checks for data overwrite, in case of multiple submissions to the same app_no
-    AJAX-ed
+    AJAX-ed by @Deshmukh
+
     """
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
     if appl_obj:
         if appl_obj[0].name == 'default-name':
-            status = "No errors were found go ahead"
+            status = "No errors found. Please continue."
             color = "#18b518"
         else:
-            status = "The application number is already filled"
+            status = "Pre-existing data found for this Application Number. Re-submission will result in an overwrite."
             color = "#f03030"
         pass
     else:
-        status = "Application number not found"
+        status = "Application number not found!"
         color = "#f03030"
+
     data = {
         'status' : status,
         'color' : color
-        }
+    }
 
     return JsonResponse(data)
