@@ -88,8 +88,8 @@ def ValidateAppNo(request):
         color = "#f03030"
 
     data = {
-        'status' : status,
-        'color' : color
+        'status': status,
+        'color': color
     }
 
     return JsonResponse(data)
