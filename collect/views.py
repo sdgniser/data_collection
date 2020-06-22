@@ -3,6 +3,7 @@ from django.core.files import File
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
+
 from .models import Applicant
 from .forms import UploadForm
 
@@ -26,7 +27,9 @@ def Upload(request):
             appl_obj = Applicant.objects.filter(app_no__exact=form.cleaned_data['app_no'])
 
             if appl_obj: # Application Number exists
+
                 old_name = appl_obj[0].name # For checking, if data is being over-written
+
                 appl_obj[0].name = form.cleaned_data['name'].upper()
                 appl_obj[0].photo = form.cleaned_data['photo']
 
@@ -69,17 +72,24 @@ def ValidateAppNo(request):
     """
     Checks for data overwrite, in case of multiple submissions to the same app_no
     AJAX-ed by @Deshmukh
+
     """
     appl_obj = Applicant.objects.filter(app_no__exact=request.GET.get("app_no", None))
     if appl_obj:
         if appl_obj[0].name == 'default-name':
-            status = ""
+            status = "No errors found. Please continue."
+            color = "#18b518"
         else:
             status = "Pre-existing data found for this Application Number. Re-submission will result in an overwrite."
+            color = "#f03030"
+        pass
     else:
-        status = "Application number not found"
+        status = "Application number not found!"
+        color = "#f03030"
+
     data = {
-        'status' : status,
-        'color' : "#f03030"
-        }
+        'status': status,
+        'color': color
+    }
+
     return JsonResponse(data)

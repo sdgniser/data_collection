@@ -6,9 +6,9 @@ $(document).ready(function () {
         drawBezierCurves: true,
         lineTop: 200,
         onDraw: function () {
-        palm_rest_text.style.color = "gray";
-        palm_rest_text.style.opacity = "0.5";
-        palm_rest_text.innerHTML = "PLEASE SIGN ABOVE";
+            palm_rest_text.style.color = "gray";
+            palm_rest_text.style.opacity = "0.5";
+            palm_rest_text.innerHTML = "PLEASE SIGN ABOVE";
         },
     });
 
@@ -28,9 +28,8 @@ $(document).ready(function () {
     app_no_warn = $("#app-no-ajax-warn")
     app_no_warn.hide();
 
-    $("#id_app_no").change(function () {
-        var app_no = $(this).val();
-
+  $("#id_app_no").change(function () {
+    var app_no = $(this).val();
         $.ajax({
             url: "/collect/validate_app_no/",
             data: {
@@ -46,4 +45,5 @@ $(document).ready(function () {
             },
         });
     });
+  });
 });
