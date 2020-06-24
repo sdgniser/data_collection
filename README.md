@@ -114,4 +114,4 @@ The application numbers are preloaded into the database, using `data_loader.py`.
 | "The 'sign' attribute has no file associated with it." | ✅ | Have to `save()` directly to `sign` ImageField
 | When submitting form, with Signature Pad empty => `Form invalid!<ul class="errorlist"><li>raw_sign<ul class="errorlist"><li>This field is required.</li></ul></li></ul>` | ✅ | Used custom validation, if Signature Pad is empty |
 | Bounce + Zoom effects cause issues with Safari on iPad (Pro) | ✅ | Set `position: fixed` on `.card-body` |
-| When another submission is made for the same `app_no`, the image file for `sign` has gibberish in its name. | ⚙ | **Happens alternately**, Opened an [Issue](https://github.com/sdgniser/data_collection/issues/1). |
+| When another submission is made for the same `app_no`, the image file for `sign` has gibberish in its name. | ✅ | **Happens alternately**, Opened an [Issue](https://github.com/sdgniser/data_collection/issues/1). |
