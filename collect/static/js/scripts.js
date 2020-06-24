@@ -1,6 +1,7 @@
 var palm_rest_text = document.getElementById("palm-rest-text");
 
 $(document).ready(function () {
+    resetForms();
     var signPad = $("#smoothed").signaturePad({
         drawOnly: true,
         drawBezierCurves: true,
@@ -46,3 +47,7 @@ $(document).ready(function () {
         });
     });
 });
+
+function resetForms() {
+    document.forms['smoothed'].reset();
+}
