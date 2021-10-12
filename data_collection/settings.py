@@ -12,21 +12,20 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
-# from .local_settings import *
 
-SECRET_KEY = os.environ.get('SECRET_KEY', "@*+_sg3g!3hsd027-!&%)him%3u6(n6(c!bm_n=eoo%=)909q%")
+SECRET_KEY = os.environ.get('SECRET_KEY', '')  # Edit this
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Edit this - Set to True during development
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PWD'),
+        'NAME': os.environ.get('DB_NAME', ''),  # Edit this
+        'USER': os.environ.get('DB_USER', ''),  # Edit this
+        'PASSWORD': os.environ.get('DB_PWD', ''),  # Edit this
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -41,16 +40,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dcniser.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Edit this
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

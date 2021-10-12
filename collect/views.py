@@ -8,10 +8,31 @@ from .models import Applicant
 from .forms import UploadForm
 
 # Resource: https://stackoverflow.com/questions/34447308/how-to-save-jpeg-binary-data-to-django-imagefield
-# import re, io
 import re
 from io import BytesIO
 from base64 import decodestring
+
+# Crop around signature: https://stackoverflow.com/questions/33998364/crop-image-from-all-sides-after-edge-detection
+# Modified to fit usecase
+import cv2
+import numpy as np
+
+def _crop(img):
+    canny = cv2.Canny(img, 400, 500) # Tweak minVal, maxVal to tune thresholds for edge detection
+
+    # Find the non-zero min-max coords of canny
+    pts = np.argwhere(canny > 0)
+    y1, x1 = pts.min(axis=0)
+    y2, x2 = pts.max(axis=0)
+
+    # Crop the region & add a 15px border
+    cropped = img[y1:y2, x1:x2]
+    cropped = cv2.copyMakeBorder(
+        cropped, 15, 15, 15, 15, cv2.BORDER_CONSTANT, value=[255,255,255]
+    )
+
+    is_success, buffer = cv2.imencode(".png", cropped)
+    return BytesIO(buffer)
 
 
 # Create your views here.
@@ -40,6 +61,8 @@ def Upload(request):
                 raw_sign = decodestring(raw_sign)
 
                 sign_img_io = BytesIO(raw_sign)
+                # Cropping in memory
+                sign_img_io = _crop(cv2.imdecode(np.frombuffer(sign_img_io.read(), np.uint8), 1))
                 sign_img_file = File(sign_img_io)
                 sign_img_file.name = "sign.png"
 
