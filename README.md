@@ -1,6 +1,6 @@
 # Repository for Data Collection form
 
-Heroku Demo here: https://dcniser.herokuapp.com/collect/
+<!-- W10 messing up ps schema - Heroku Demo here: https://dcniser.herokuapp.com/collect/ -->
 
 ## Dependencies:
 * Python Packages:
