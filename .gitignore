@@ -5,6 +5,7 @@ __init__.py
 # Folders
 dc_venv
 migrations
+nginx_setup
 
 # Files
 local_settings.py
