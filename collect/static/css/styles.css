@@ -61,7 +61,7 @@ label {
     margin: 0;
 }
 
-input[name=app_no], input[name=name] {
+input[name=app_no], input[name=name], select[name=blood_group] {
     width: 100%;
     margin-bottom: 5px;
 }

@@ -1,12 +1,11 @@
+# Cached Files
 __pycache__
-migrations
-media/photos/
-media/sign/
-static/admin/
-
 __init__.py
-local_settings.py
-styles_old.css
 
-env
-collect/fixtures/*.json
+# Folders
+dc_venv
+migrations
+
+# Files
+local_settings.py
+gunicorn.conf.py.local

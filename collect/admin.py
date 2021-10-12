@@ -14,16 +14,13 @@ class ApplicantAdmin(admin.ModelAdmin):
     get_photo.short_description = 'Photograph'
     get_sign.short_description = 'Signature'
 
-    list_display = ('app_no', 'name', 'get_photo', 'get_sign')
-    list_filter = ('app_no', 'name')
+    list_display = ('app_no', 'name', 'blood_group', 'get_photo', 'get_sign')
+    list_filter = ('blood_group',)
     fieldsets = (
-        ('Pre-supplied Data', {
-            'fields': ('app_no',)
-        }),
         ('Applicant Supplied Data', {
-            'fields': ('name', ('get_photo', 'get_sign',))
-        })
+            'fields': ('app_no', 'name', 'blood_group', ('get_photo', 'get_sign',))
+        }),
     )
-    
-    readonly_fields = ('get_photo', 'get_sign')
+
+    readonly_fields = ('blood_group', 'get_photo', 'get_sign')
     list_per_page = 20

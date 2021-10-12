@@ -25,27 +25,6 @@ $(document).ready(function () {
             document.getElementById("id_raw_sign").value = data;
         }
     });
-
-    app_no_warn = $("#app-no-ajax-warn")
-    app_no_warn.hide();
-
-  $("#id_app_no").change(function () {
-    var app_no = $(this).val();
-        $.ajax({
-            url: "/collect/validate_app_no/",
-            data: {
-                app_no: app_no,
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                app_no_warn.html(data.status);
-                app_no_warn.css("color", data.color);
-                $("#message").hide();
-                app_no_warn.show();
-            },
-        });
-    });
 });
 
 function resetForms() {
