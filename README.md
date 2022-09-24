@@ -1,7 +1,7 @@
 # Repository for Data Collection form
 
 <!-- W10 messing up ps schema - Heroku Demo here: https://dcniser.herokuapp.com/collect/ -->
-**NOTE**: The intended platform for this site is touchscreen tablets, in particular Safari on iPad with the stylus (Pencil). Also, the AJAX-validation code can be found in the `ajax-validate` branch.
+**NOTE**: *The intended platform for this site is touchscreen tablets, in particular Safari on iPad with the stylus (Pencil). Also, the AJAX-validation code can be found in the `ajax-validate` branch*.
 
 ## Dependencies:
 * Python Packages:
