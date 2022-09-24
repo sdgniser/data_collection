@@ -1,6 +1,6 @@
 # Repository for Data Collection form
 
-Heroku App here: https://dcniser.herokuapp.com/collect/
+<!-- Heroku App here: https://dcniser.herokuapp.com/collect/ -->
 
 ## Dependencies:
 (Check `requirements.txt` for exact versions)
