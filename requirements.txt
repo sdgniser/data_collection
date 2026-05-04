@@ -3,7 +3,7 @@ Django==4.2.18
 gunicorn==22.0.0
 numpy==1.22.0
 opencv-python==4.8.1.78
-Pillow==10.3.0
+Pillow==12.2.0
 psycopg2==2.9.1
 psycopg2-binary==2.9.1
 whitenoise==5.3.0
